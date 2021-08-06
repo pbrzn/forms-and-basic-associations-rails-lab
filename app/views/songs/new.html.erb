@@ -9,12 +9,8 @@
   <br>
 
   <%= f.label :genre_name %>
-  <%= f.text_field :genre_id, list: "genre_autocomplete" %>
-  <datalist id="genre_autocomplete">
-    <% Genre.all.each do |genre| %>
-      <option value="<%= genre.name %>">
-    <% end %>
-  </datalist><br>
+  <%= f.collection_select :genre_id, Genre.all, :id, :name %>
+  <br>
 
   <%= f.label :note_contents %>
   <input name="song[note_contents][]" id="song_notes_1" type="text"/>
